@@ -87,15 +87,15 @@ jQuery(document).ready(function () {
                                 currentRoomNum++;
                                 extrachildrens = extrachildrens - 4;
                             } else {
-                                extrachildrenPush = [];
+                                extrachildrenPush = ['c', 'c'];
                                 console.log('extrachildren', extrachildrens);
                                 for (var q = 0; q < extrachildrens; q++) {
                                     // console.log('push')
-                                    extrachildrenPush.push('c');
+                                    // extrachildrenPush.push('c');
                                 }
                                 console.log('currentRoomNum', currentRoomNum);
                                 console.log(extrachildrenPush);
-                                room_allotment[currentRoomNum] = [...extrachildrenPush];
+                                room_allotment[currentRoomNum] = extrachildrenPush;
                                 extrachildrens = 0;
                             }
                         }
