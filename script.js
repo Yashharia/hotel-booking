@@ -76,27 +76,26 @@ jQuery(document).ready(function () {
                 }
                 else {
                     currentRoomNum = room_allotment.length;
-                    extrachildrens = numOfChildrensSudo;
                     childrenPush = [];
                     for (var l = 1; l <= numOfChildrensSudo; l++) {
-                        if (extrachildrens != 0) {
-                            if (extrachildrens >= 4) {
+                        if (numOfChildrensSudo != 0) {
+                            if (numOfChildrensSudo >= 4) {
                                 childrenPush.push('c', 'c', 'c', 'c');
                                 room_allotment[currentRoomNum] = childrenPush;
                                 childrenPush = [];
                                 currentRoomNum++;
-                                extrachildrens = extrachildrens - 4;
+                                numOfChildrensSudo = numOfChildrensSudo - 4;
                             } else {
-                                extrachildrenPush = ['c', 'c'];
-                                console.log('extrachildren', extrachildrens);
-                                for (var q = 0; q < extrachildrens; q++) {
+                                extrachildrenPush = [];
+                                console.log('extrachildren', numOfChildrensSudo);
+                                for (var q = 0; q < numOfChildrensSudo; q++) {
                                     // console.log('push')
-                                    // extrachildrenPush.push('c');
+                                    extrachildrenPush.push('c');
                                 }
                                 console.log('currentRoomNum', currentRoomNum);
                                 console.log(extrachildrenPush);
                                 room_allotment[currentRoomNum] = extrachildrenPush;
-                                extrachildrens = 0;
+                                numOfChildrensSudo = 0;
                             }
                         }
                     }
@@ -108,7 +107,7 @@ jQuery(document).ready(function () {
         // loop end
 
 
-        if (numberofrooms > 3) {
+        if (room_allotment.length > 3) {
             // console.log('inside if contdiotion');
             jQuery(".need-more-rooms").css("display", "block")
             jQuery('input[type="submit"]').attr('disabled', 'disabled');
